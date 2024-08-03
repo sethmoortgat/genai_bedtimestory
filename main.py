@@ -83,12 +83,16 @@ if st.session_state.current_page == "Welcome":
 	st.divider() 
 	
 	st.header("Welkom!")
-	st.markdown("Welkom!")
+	st.markdown("""
+AI bedtime stories is een geautomatiseerde service die door middel van artificiële intelligentie gepersonaliseerde verhaaltjes en illustraties kan maken. Op basis van de gegevens die jij ingeeft (naam & kenmerken van je kind en andere elementen die je graag in het verhaal wil verwerken), zal een kort verhaaltje met bijpassende illustratie naar jouw e-mail adres gestuurd worden.
+	""")
 	
 	
 	
 	st.header("Woe werkt het?")
-	st.markdown("fillme")
+	st.markdown("""
+Door hieronder te klikken op "Maak een verhaaltje" wordt je naar een formulier gestuurd waar je enkele vragen dient in te vullen die nodig zijn om het verhaal te personaliseren. Nadat je dit formulier hebt ingediend zal je binnen 24u (mogelijks al een stuk sneller) een e-mail ontvangen waarin je je persoonlijke verhaaltje met bijgevoegde illustratie kan terugvinden. Dat verhaaltje en de foto zijn volledig aan de hand van AI (artificiële intelligentie) gegenereerd.
+	""")
 	
 	st.info("""
 	Disclaimer:
@@ -101,10 +105,10 @@ if st.session_state.current_page == "Welcome":
 		st.button("Maak een verhaaltje",key="request_from_welcome", on_click=change_page_request)
 
 	with col2:
-		st.button("Frequently Asked Questions",key="faq_from_welcome", on_click=change_page_examples)
+		st.button("Frequently Asked Questions",key="faq_from_welcome", on_click=change_page_faq)
 	
 	with col3:
-		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page_faq)
+		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page_examples)
 	
 	st.header("Wil je dit initiatief graag steunen?")
 	st.markdown("""
