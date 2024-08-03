@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 ###############
 #
 # FORMATTING
@@ -120,6 +122,15 @@ Door hieronder te klikken op "Maak een verhaaltje" wordt je naar een formulier g
 	  * Je kan ook een vrijwillige donatie maken via onderstaande link. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
 	""")
 
+	st.markdown("""
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="JDKEW55GV2N9Q" />
+<input type="image" src="https://pics.paypal.com/00/s/ZjFkMDI1ZDctMmY5MC00N2ZhLTlhNmUtMTFjYjMwNjMyN2Qw/file.JPG" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Doneren met PayPal-knop" />
+<img alt="" border="0" src="https://www.paypal.com/nl_BE/i/scr/pixel.gif" width="1" height="1" />
+</form>
+	""", unsafe_allow_html=True)
+
+
 
 
 ###############
@@ -129,21 +140,25 @@ Door hieronder te klikken op "Maak een verhaaltje" wordt je naar een formulier g
 ###############
 
 elif st.session_state.current_page == "Request":
-
+	
+	st.info("""
+	Vul onderstaande informatie zo nauwkeurig mogelijk in. Hoe meer details je meegeeft, hoe beter de kwaliteit van het verhaal en de bijhorende illustratie zal zijn.
+	""",icon="❗")
+	
 	contact_form = """
 	<form action="https://api.web3forms.com/submit" method="POST">
 		<!-- Replace with your Access Key -->
 		<input type="hidden" name="access_key" value="69c64411-1307-4e08-b9cd-fdf76f46d456">
 		<!-- Form Inputs. Each input must have a name="" attribute -->
 		<label for="Name of main character">Wat is de naam van het hoofdpersonage?</label><br>
-		<input type="text" name="Name of main character" placeholder="ex. Emma, Lily, ..." required>
+		<input type="text" name="Name of main character" placeholder="bvb. Emma, Lily, Arthur, ..." required>
 		<label for="Characteristics of main character">Wat zijn specifieke kenmerken van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</label><br>
-		<input type="text" name="Characteristics of main character" placeholder="ex. 3-jarig blond meisje dat graag een roze jurk draagt." required>
-		<label for="Elements of the story">Welke elementen moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, ...</label><br>
-		<input type="text" name="Elements of the story" placeholder="ex. Flappy haar bruin hondje waarmee ze vaak in de tuin speelt." required>
-		<label for="language">In welke taal zou je het verhaaltje graag lezen?:</label><br>
+		<input type="text" name="Characteristics of main character" placeholder="bvb. 3-jarig blond meisje dat graag een roze jurk draagt." required>
+		<label for="Elements of the story">Welke elementen moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </label><br>
+		<input type="text" name="Elements of the story" placeholder="bvb. Flappy haar bruin hondje waarmee ze vaak in de tuin speelt." required>
+		<label for="language">In welke taal zou je het verhaaltje graag lezen?</label><br>
 		<input type="text" name="language" placeholder="Nederlands" required>
-		<label for="email">Naar welk email adres moeten we het verhaal opsturen?:</label><br>
+		<label for="email">Naar welk email adres moeten we het verhaal opsturen?</label><br>
 		<input type="email" name="email" placeholder="email@email.com" required>
 		<button type="submit">Submit Form</button>
 	</form>
@@ -171,8 +186,18 @@ if st.session_state.current_page == "FAQ":
 	st.title("Frequently Asked Questions")
 	
 	with st.expander("Ik wacht al meer dan 24u maar heb nog geen email ontvangen?"):
-		st.write('''
-		Het spijt me dat je nog geen verhaaltje hebt ontvangen, normaal zou je binnen 24u zeker een email moeten hebben ontvangen. Het automatisch genereren van een verhaal en bijgevoegde illustratie is afhankelijk van verschillende externe services. Er kan altijd iets mis lopen, zowel bij de externe services als ergens anders. Probeer het eerst nog een keer, en als je nog steeds niets ontvangt aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:seth.moortgat@gmail.com)!
+		st.markdown('''
+Het spijt me dat je nog geen verhaaltje hebt ontvangen, normaal zou je binnen 24u zeker een email moeten hebben ontvangen. Het automatisch genereren van een verhaal en bijgevoegde illustratie is afhankelijk van verschillende externe services. Er kan altijd iets mis lopen, zowel bij de externe services als ergens anders. Wat je alvast kan proberen is het volgende:
+  * Kijk even je spam na
+  * Kijk na of je inbox niet vol zit
+  * Probeer het gewoon nog een keer, misschien lukt het deze keer wel
+
+Als je toch nog steeds niets ontvangt aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:seth.moortgat@gmail.com)!
+		''')
+	
+	with st.expander("Het verhaal en/of de illustratie komen niet goed overeen met mijn beschrijving, hoe komt dat?"):
+		st.markdown('''
+Helaas hebben we weinig controle over wat de AI algoritmes genereren, en kan het soms gebeuren dat het resultaat (text of beeld) niet helemaal overeen komt met wat je zou verwachten. Het helpt om het formulier met zo veel mogelijk detail in te vullen, dus probeer het gerust nog een keer met een nieuwe, gedetailleerde beschrijving van wat je graag wil zien/horen!
 		''')
 
 ###############
