@@ -104,6 +104,8 @@ if st.session_state.current_page == "Welcome":
 	st.markdown("## Welkom!")
 	st.markdown("""
 AI bedtime stories is een geautomatiseerde service die door middel van artificiële intelligentie gepersonaliseerde verhaaltjes en illustraties kan maken. Op basis van de gegevens die jij ingeeft (naam & kenmerken van je kind en andere elementen die je graag in het verhaal wil verwerken), zal een kort verhaaltje met bijpassende illustratie naar jouw e-mail adres gestuurd worden.
+
+Het wordt pas echt magisch als je aan je kindje vraagt wat hij/zij graag in het verhaaltje zou willen verwerken! Hun fantasie rijkt vaak duizend maal verder dan die van ons!
 	""")
 	
 	
@@ -115,6 +117,8 @@ Een verhaaltje aanvragen doe je zo:
   1. klik hieronder of in de navigatiebalk (links) op "Maak een verhaaltje"
   2. Vul het formulier in door de vragen (met zoveel mogelijk details) te beantwoorden en druk op "Submit form".
   3. Je zal binnen 24u (mogelijks al een stuk sneller) een e-mail ontvangen waarin je je persoonlijke verhaaltje met bijgevoegde illustratie kan terugvinden.
+
+Je kan hieronder ook doorklikken om veelgestelde vragen te overlopen, of om een voorbeeldje te zien van wat je kan verwachten!
 	""")
 	
 	st.info("""
@@ -135,12 +139,11 @@ Een verhaaltje aanvragen doe je zo:
 	
 	st.markdown("## Wil je dit initiatief graag steunen?")
 	st.markdown("""
-	In eerste instantie is het mijn doel om een lach te toveren op de gezichten van jullie kindjes. Vandaar is de service voorlopig helemaal gratis!
-	In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
+In eerste instantie is het mijn doel om **een lach te toveren op de gezichten van jullie kindjes**. Vandaar is de service voorlopig helemaal gratis! In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
 	
-	Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
-	  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
-	  * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
+Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
+  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
+  * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
 	""")
 	
 	st.image("img/qr.png",caption="Doneer door deze QR code te scannen")
@@ -166,15 +169,15 @@ elif st.session_state.current_page == "Request":
 		<!-- Replace with your Access Key -->
 		<input type="hidden" name="access_key" value="69c64411-1307-4e08-b9cd-fdf76f46d456">
 		<!-- Form Inputs. Each input must have a name="" attribute -->
-		<label for="Name of main character">Wat is de naam van het hoofdpersonage?</label><br>
+		<label for="Name of main character">Wat is de <font color="#26b29d"><b>naam</b></font> van het hoofdpersonage?</label><br>
 		<input type="text" name="Name of main character" placeholder="bvb. Emma, Lily, Arthur, ..." required>
-		<label for="Characteristics of main character">Wat zijn specifieke kenmerken van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</label><br>
+		<label for="Characteristics of main character">Wat zijn specifieke <font color="#26b29d"><b>kenmerken</b></font> van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</label><br>
 		<input type="text" name="Characteristics of main character" placeholder="bvb. 3-jarig blond meisje dat graag een roze jurk draagt." required>
-		<label for="Elements of the story">Welke elementen moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </label><br>
-		<input type="text" name="Elements of the story" placeholder="bvb. Flappy haar bruin hondje waarmee ze vaak in de tuin speelt." required>
-		<label for="language">In welke taal zou je het verhaaltje graag lezen?</label><br>
+		<label for="Elements of the story">Welke <font color="#26b29d"><b>elementen</b></font> moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </label><br>
+		<input type="text" name="Elements of the story" placeholder="bvb. Ze speelt graag op het strand met haar hondje Flappy (een bruine golden retriever), maar is soms een beetje wild. In het verhaaltje leert ze dat ze rustig moet spelen." required>
+		<label for="language">In welke <font color="#26b29d"><b>taal</b></font> zou je het verhaaltje graag lezen?</label><br>
 		<input type="text" name="language" placeholder="Nederlands" required>
-		<label for="email">Naar welk email adres moeten we het verhaal opsturen?</label><br>
+		<label for="email">Naar welk <font color="#26b29d"><b>email adres</b></font> moeten we het verhaal opsturen?</label><br>
 		<input type="email" name="email" placeholder="email@email.com" required>
 		<button type="submit">Submit Form</button>
 	</form>
@@ -208,7 +211,7 @@ Het spijt me dat je nog geen verhaaltje hebt ontvangen, normaal zou je binnen 24
   * Kijk na of je inbox niet vol zit
   * Probeer het gewoon nog een keer, misschien lukt het deze keer wel
 
-Als je toch nog steeds niets ontvangt aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:seth.moortgat@gmail.com)!
+Als je toch nog steeds niets ontvangt, aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:seth.moortgat@gmail.com)!
 		''')
 	
 	with st.expander("Het verhaal en/of de illustratie komen niet goed overeen met mijn beschrijving, hoe komt dat?"):
