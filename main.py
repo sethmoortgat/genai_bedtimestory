@@ -119,16 +119,11 @@ Door hieronder te klikken op "Maak een verhaaltje" wordt je naar een formulier g
 	
 	Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
 	  * [Stuur me een e-mail](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
-	  * Je kan ook een vrijwillige donatie maken via onderstaande link. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
+	  * Je kan ook een vrijwillige donatie maken via [deze link](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
 	""")
+	
+	st.image("img/qr.png",caption="Doneer door deze QR code te scannen")
 
-	st.markdown("""
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="JDKEW55GV2N9Q" />
-<input type="image" src="https://pics.paypal.com/00/s/ZjFkMDI1ZDctMmY5MC00N2ZhLTlhNmUtMTFjYjMwNjMyN2Qw/file.JPG" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Doneren met PayPal-knop" />
-<img alt="" border="0" src="https://www.paypal.com/nl_BE/i/scr/pixel.gif" width="1" height="1" />
-</form>
-	""", unsafe_allow_html=True)
 
 
 
