@@ -174,7 +174,7 @@ elif st.session_state.current_page == "Request":
 		<label for="Characteristics of main character">Wat zijn specifieke <font color="#26b29d"><b>kenmerken</b></font> van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</label><br>
 		<input type="text" name="Characteristics of main character" placeholder="bvb. 3-jarig blond meisje dat graag een roze jurk draagt." required>
 		<label for="Elements of the story">Welke <font color="#26b29d"><b>elementen</b></font> moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </label><br>
-		<input type="text" name="Elements of the story" placeholder="bvb. Ze speelt graag op het strand met haar hondje Flappy (een bruine golden retriever), maar is soms een beetje wild. In het verhaaltje leert ze dat ze rustig moet spelen." required>
+		<input type="text" name="Elements of the story" placeholder="bvb. Ze speelt graag op het strand met haar hondje Flappy (een bruine golden retriever), maar is soms een beetje wild." required>
 		<label for="language">In welke <font color="#26b29d"><b>taal</b></font> zou je het verhaaltje graag lezen?</label><br>
 		<input type="text" name="language" placeholder="Nederlands" required>
 		<label for="email">Naar welk <font color="#26b29d"><b>email adres</b></font> moeten we het verhaal opsturen?</label><br>
