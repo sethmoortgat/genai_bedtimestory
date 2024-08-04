@@ -7,11 +7,11 @@ st.set_page_config(layout="wide")
 # FORMATTING
 #
 ###############
+#v        justify-content: left;
 st.markdown("""
 <style>
     .stButton button {
         background-color: #e3f4ef;
-        justify-content: left;
         font-weight: bold;
         color: black;
         width: 100%;
@@ -28,6 +28,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
+<style>.element-container:has(#button-after) + div button {
+justify-content: left;
+font-size: 20px;
+ }</style>""", unsafe_allow_html=True)
+
+st.markdown("""
 <style>
     [data-testid=stSidebar] {
         background-color: #e3f4ef;
@@ -35,7 +41,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<style>.big-font {font-size:20px !important;}</style>', unsafe_allow_html=True)
 
 ###############
 #
@@ -66,10 +71,15 @@ def change_page_examples():
 	st.session_state.current_page = "Examples"
 
 with st.sidebar:
-    st.button("Welkom",key="welcome", on_click=change_page_welcome)
-    st.button("Maak een verhaaltje",key="request", on_click=change_page_request)
-    st.button("FAQ",key="faq", on_click=change_page_faq)
-    st.button("Voorbeelden",key="examples", on_click=change_page_examples)
+	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
+	st.button("# Welkom",key="welcome", on_click=change_page_welcome)
+	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
+	st.button("# Maak een verhaaltje",key="request", on_click=change_page_request)
+	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
+	st.button("# FAQ",key="faq", on_click=change_page_faq)
+	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
+	st.button("# Voorbeelden",key="examples", on_click=change_page_examples)
+
 
 ###############
 #
@@ -77,29 +87,40 @@ with st.sidebar:
 #
 ###############
 
+
+
 if st.session_state.current_page == "Welcome":
 
-	st.title("AI Bedtime Stories")
-	st.subheader("Gepersonaliseerde verhaaltjes voor het slapen gaan.")
+	st.markdown("# AI Bedtime Stories")
+	st.markdown("## Gepersonaliseerde verhaaltjes voor het slapen gaan.", help="Verhaaltjes worden gemaakt aan de hand van ChatGPT-4o en illustraties aan de hand van DALL-E 3, beiden [modellen die door OpenAI aangeboden worden](https://platform.openai.com/docs/models).")
+		
+	col1, col2 = st.columns([0.3,0.7])
+	
+	with col1:
+		st.button("# 🌟 Maak een verhaaltje 🌟",key="request_from_welcome_top", on_click=change_page_request, type="primary")
 	
 	st.divider() 
 	
-	st.header("Welkom!")
+	st.markdown("## Welkom!")
 	st.markdown("""
 AI bedtime stories is een geautomatiseerde service die door middel van artificiële intelligentie gepersonaliseerde verhaaltjes en illustraties kan maken. Op basis van de gegevens die jij ingeeft (naam & kenmerken van je kind en andere elementen die je graag in het verhaal wil verwerken), zal een kort verhaaltje met bijpassende illustratie naar jouw e-mail adres gestuurd worden.
 	""")
 	
 	
 	
-	st.header("Woe werkt het?")
+	st.markdown("## Woe werkt het?")
+	
 	st.markdown("""
-Door hieronder te klikken op "Maak een verhaaltje" wordt je naar een formulier gestuurd waar je enkele vragen dient in te vullen die nodig zijn om het verhaal te personaliseren. Nadat je dit formulier hebt ingediend zal je binnen 24u (mogelijks al een stuk sneller) een e-mail ontvangen waarin je je persoonlijke verhaaltje met bijgevoegde illustratie kan terugvinden. Dat verhaaltje en de foto zijn volledig aan de hand van AI (artificiële intelligentie) gegenereerd.
+Een verhaaltje aanvragen doe je zo:
+  1. klik hieronder of in de navigatiebalk (links) op "Maak een verhaaltje"
+  2. Vul het formulier in door de vragen (met zoveel mogelijk details) te beantwoorden en druk op "Submit form".
+  3. Je zal binnen 24u (mogelijks al een stuk sneller) een e-mail ontvangen waarin je je persoonlijke verhaaltje met bijgevoegde illustratie kan terugvinden.
 	""")
 	
 	st.info("""
 	Disclaimer:
 	De verhaaltjes en bijgevoegde illustraties worden automatisch via artificiële intelligentie gemaakt, op basis van de input die jij doorgeeft. Wij kunnen nooit verantwoordelijk gehouden worden voor onverwachte of aanstootgevende uitkomsten!
-	""",icon="❗")
+	""",icon="ℹ️")
 	
 	col1, col2, col3 = st.columns(3)
 
@@ -112,14 +133,14 @@ Door hieronder te klikken op "Maak een verhaaltje" wordt je naar een formulier g
 	with col3:
 		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page_examples)
 	
-	st.header("Wil je dit initiatief graag steunen?")
+	st.markdown("## Wil je dit initiatief graag steunen?")
 	st.markdown("""
 	In eerste instantie is het mijn doel om een lach te toveren op de gezichten van jullie kindjes. Vandaar is de service voorlopig helemaal gratis!
 	In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
 	
 	Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
-	  * [Stuur me een e-mail](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
-	  * Je kan ook een vrijwillige donatie maken via [deze link](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
+	  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
+	  * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
 	""")
 	
 	st.image("img/qr.png",caption="Doneer door deze QR code te scannen")
@@ -138,7 +159,7 @@ elif st.session_state.current_page == "Request":
 	
 	st.info("""
 	Vul onderstaande informatie zo nauwkeurig mogelijk in. Hoe meer details je meegeeft, hoe beter de kwaliteit van het verhaal en de bijhorende illustratie zal zijn.
-	""",icon="❗")
+	""",icon="ℹ️")
 	
 	contact_form = """
 	<form action="https://api.web3forms.com/submit" method="POST">
