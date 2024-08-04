@@ -194,6 +194,12 @@ Als je toch nog steeds niets ontvangt aarzel dan niet om contact op te nemen doo
 		st.markdown('''
 Helaas hebben we weinig controle over wat de AI algoritmes genereren, en kan het soms gebeuren dat het resultaat (text of beeld) niet helemaal overeen komt met wat je zou verwachten. Het helpt om het formulier met zo veel mogelijk detail in te vullen, dus probeer het gerust nog een keer met een nieuwe, gedetailleerde beschrijving van wat je graag wil zien/horen!
 		''')
+	
+	with st.expander("Hoe weet ik of mijn aanvraag goed verzonden is?"):
+		st.markdown('''
+Als je onderstaand scherm te zien krijgt weet je dat je aanvraag goed verzonden is. Er kan echter nog altijd iets mislopen in het process waardoor je toch geen email ontvangt binnen de 24u. Als dat zo zou zijn, kijk dan even naar de gerelateerde vraag hierboven.
+		''')
+		st.image("img/Success.png")
 
 ###############
 #
