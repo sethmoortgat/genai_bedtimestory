@@ -57,28 +57,23 @@ if "current_page" not in st.session_state.keys():
 # NAVIGATION SIDEBAR
 #
 ###############
-
-def change_page_welcome():
-	st.session_state.current_page = "Welcome"
 	
-def change_page_request():
-	st.session_state.current_page = "Request"
+def change_page(page):
+	st.session_state.current_page = page
 
-def change_page_faq():
-	st.session_state.current_page = "FAQ"
-
-def change_page_examples():
-	st.session_state.current_page = "Examples"
 
 with st.sidebar:
+	st.title("Navigeer naar:")
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# Welkom",key="welcome", on_click=change_page_welcome)
+	st.button("# 🎈 Welkom",key="welcome", on_click=change_page, args=('Welcome',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# Maak een verhaaltje",key="request", on_click=change_page_request)
+	st.button("# ✎ Maak een verhaaltje",key="request", on_click=change_page, args=('Request',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# FAQ",key="faq", on_click=change_page_faq)
+	st.button("# ❓ FAQ",key="faq", on_click=change_page, args=('FAQ',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# Voorbeelden",key="examples", on_click=change_page_examples)
+	st.button("# 💬 Voorbeelden",key="examples", on_click=change_page, args=('Examples',))
+	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
+	st.button("# ✨ Steun ons",key="support", on_click=change_page, args=('Support',))
 
 
 ###############
@@ -97,7 +92,7 @@ if st.session_state.current_page == "Welcome":
 	col1, col2 = st.columns([0.3,0.7])
 	
 	with col1:
-		st.button("# 🌟 Maak een verhaaltje 🌟",key="request_from_welcome_top", on_click=change_page_request, type="primary")
+		st.button("# 🌟 Maak een verhaaltje 🌟",key="request_from_welcome_top", on_click=change_page, args=('Request',), type="primary")
 	
 	st.divider() 
 	
@@ -129,24 +124,16 @@ Je kan hieronder ook doorklikken om veelgestelde vragen te overlopen, of om een 
 	col1, col2, col3 = st.columns(3)
 
 	with col1:
-		st.button("Maak een verhaaltje",key="request_from_welcome", on_click=change_page_request)
+		st.button("Maak een verhaaltje",key="request_from_welcome", on_click=change_page, args=('Request',))
 
 	with col2:
-		st.button("Frequently Asked Questions",key="faq_from_welcome", on_click=change_page_faq)
+		st.button("Frequently Asked Questions",key="faq_from_welcome", on_click=change_page, args=('FAQ',))
 	
 	with col3:
-		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page_examples)
+		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page, args=('Examples',))
 	
 	st.markdown("## Wil je dit initiatief graag steunen?")
-	st.markdown("""
-In eerste instantie is het mijn doel om **een lach te toveren op de gezichten van jullie kindjes**. Vandaar is de service voorlopig helemaal gratis! In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
-	
-Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
-  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
-  * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
-	""")
-	
-	st.image("img/qr.png",caption="Doneer door deze QR code te scannen")
+	st.button("# 🌟 Neem hier een kijkje hoe je ons kan steunen 🌟",key="support_from_welcome", on_click=change_page, args=('Support',), type="primary")
 
 
 
@@ -160,26 +147,30 @@ Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee m
 
 elif st.session_state.current_page == "Request":
 	
+	st.markdown("# Vraag een verhaaltje aan")
+	
 	st.info("""
 	Vul onderstaande informatie zo nauwkeurig mogelijk in. Hoe meer details je meegeeft, hoe beter de kwaliteit van het verhaal en de bijhorende illustratie zal zijn.
 	""",icon="ℹ️")
+	
+	st.divider() 
 	
 	contact_form = """
 	<form action="https://api.web3forms.com/submit" method="POST">
 		<!-- Replace with your Access Key -->
 		<input type="hidden" name="access_key" value="69c64411-1307-4e08-b9cd-fdf76f46d456">
 		<!-- Form Inputs. Each input must have a name="" attribute -->
-		<label for="Name of main character">Wat is de <font color="#26b29d"><b>naam</b></font> van het hoofdpersonage?</label><br>
+		<label for="Name of main character"><font style="font-size:15pt;">Wat is de <font color="#26b29d"><b>naam</b></font> van het hoofdpersonage?</font></label><br>
 		<input type="text" name="Name of main character" placeholder="bvb. Emma, Lily, Arthur, ..." required>
-		<label for="Characteristics of main character">Wat zijn specifieke <font color="#26b29d"><b>kenmerken</b></font> van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</label><br>
+		<label for="Characteristics of main character"><font style="font-size:15pt;">Wat zijn specifieke <font color="#26b29d"><b>kenmerken</b></font> van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</font></label><br>
 		<input type="text" name="Characteristics of main character" placeholder="bvb. 3-jarig blond meisje dat graag een roze jurk draagt." required>
-		<label for="Elements of the story">Welke <font color="#26b29d"><b>elementen</b></font> moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </label><br>
+		<label for="Elements of the story"><font style="font-size:15pt;">Welke <font color="#26b29d"><b>elementen</b></font> moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </font></label><br>
 		<input type="text" name="Elements of the story" placeholder="bvb. Ze speelt graag op het strand met haar hondje Flappy (een bruine golden retriever), maar is soms een beetje wild." required>
-		<label for="language">In welke <font color="#26b29d"><b>taal</b></font> zou je het verhaaltje graag lezen?</label><br>
+		<label for="language"><font style="font-size:15pt;">In welke <font color="#26b29d"><b>taal</b></font> zou je het verhaaltje graag lezen?</font></label><br>
 		<input type="text" name="language" placeholder="Nederlands" required>
-		<label for="email">Naar welk <font color="#26b29d"><b>email adres</b></font> moeten we het verhaal opsturen?</label><br>
+		<label for="email"><font style="font-size:15pt;">Naar welk <font color="#26b29d"><b>email adres</b></font> moeten we het verhaal opsturen?</font></label><br>
 		<input type="email" name="email" placeholder="email@email.com" required>
-		<button type="submit">Submit Form</button>
+		<button type="submit"><font style="font-size:15pt;">Submit Form</font></button>
 	</form>
 	"""
 
@@ -274,3 +265,22 @@ Die avond, veilig in haar bedje, droomde Lily over alle prachtige dieren en wist
 
 		""")
 
+###############
+#
+# Support
+#
+###############
+ 
+if st.session_state.current_page == "Support":
+
+	st.markdown("# Wil je dit initiatief graag steunen?")
+	
+	st.markdown("""
+In eerste instantie is het mijn doel om **een lach te toveren op de gezichten van jullie kindjes**. Vandaar is de service voorlopig helemaal gratis! In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
+	
+Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
+  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
+  * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
+	""")
+	
+	st.image("img/qr.png",caption="Doneer door deze QR code te scannen")
