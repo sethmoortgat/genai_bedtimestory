@@ -131,9 +131,35 @@ Je kan hieronder ook doorklikken om veelgestelde vragen te overlopen, of om een 
 	
 	with col3:
 		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page, args=('Examples',))
+		
+	st.markdown("## Wat mag ik verwachten?")
+	st.markdown("""
+Als je het formulier invult en indient zal er automatisch een verhaaltje gemaakt worden dat je als een pdf in je inbox zal kunnen terugvinden. Je kindje zal ongetwijfeld genieten van de inhoud van het verhaal en de bijgevoegde illustratie, maar dit bestand heeft geen speciale opmaak.
+
+Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer **opgemaakte versie** ontvangen, zoals hieronder staat afgebeeld. Een leuk idee om later af te drukken en in te kaderen, eventueel als cadeau voor je nieuwe nichtje/neefje/mete- of petekindje, ...!
+
+Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
+
+  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
+  * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
+  * Ik zal zo snel mogelijk contact opnemen met details over de betaling.
+  * Van zodra de betaling ontvangen is stuur ik je **digitaal(!)** een opgemaakte versie door. (Wij printen niets af en sturen niets met de post op!)
+	""")
+	
+	col1, col2 = st.columns(2)
+	
+	with col1:
+		st.markdown("### Geautomatiseerd (gratis)")
+		st.image("img/raw_story.jpg")
+
+	with col2:
+		st.markdown("### Op aanvraag (betalend)")
+		st.image("img/formatted_story.jpg")
+	
+	
 	
 	st.markdown("## Wil je dit initiatief graag steunen?")
-	st.button("# 🌟 Neem hier een kijkje hoe je ons kan steunen 🌟",key="support_from_welcome", on_click=change_page, args=('Support',), type="primary")
+	st.button("# 🌟 Kijk hier hoe je ons kan steunen! 🌟",key="support_from_welcome", on_click=change_page, args=('Support',), type="primary")
 
 
 
@@ -264,6 +290,24 @@ Net op dat moment hoorde ze een zachte stem: "Lily, waar ben je?" Het was haar m
 Die avond, veilig in haar bedje, droomde Lily over alle prachtige dieren en wist ze dat alles altijd goed zou komen zolang ze dicht bij haar ouders bleef. En met dat geruststellende gevoel, viel ze snel in slaap.
 
 		""")
+		
+	st.markdown("## Opgemaakte versie (op aanvraag en betalend)")
+	
+	col1, col2 = st.columns([0.6, 0.4])
+	with col1:
+		st.markdown("""
+Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer **opgemaakte versie** ontvangen, zoals hieronder staat afgebeeld. Een leuk idee om later af te drukken en in te kaderen, eventueel als cadeau voor je nieuwe nichtje/neefje/mete- of petekindje!
+
+Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
+
+  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
+  * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
+  * Ik zal zo snel mogelijk contact opnemen met details over de betaling.
+  * Van zodra de betaling ontvangen is stuur ik je **digitaal(!)** een opgemaakte versie door. (Wij printen niets af en sturen niets met de post op!)
+		""")
+
+	with col2:
+		st.image("img/formatted_story.jpg")
 
 ###############
 #
