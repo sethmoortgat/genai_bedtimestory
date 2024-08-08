@@ -7,7 +7,6 @@ st.set_page_config(layout="wide")
 # FORMATTING
 #
 ###############
-#v        justify-content: left;
 st.markdown("""
 <style>
     .stButton button {
@@ -32,6 +31,26 @@ st.markdown("""
 justify-content: left;
 font-size: 20px;
  }</style>""", unsafe_allow_html=True)
+ 
+st.markdown("""
+<style>
+    .stLinkButton a {
+        background-color: #e3f4ef;
+        font-weight: bold;
+        color: black;
+        width: 100%;
+        height: 50px;
+        border: 0px;
+    }
+
+    .stLinkButton a:hover {
+        background-color:#42deb1;
+        color: white;
+    }
+
+</style>
+""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <style>
@@ -67,11 +86,11 @@ with st.sidebar:
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
 	st.button("# 🎈 Welkom",key="welcome", on_click=change_page, args=('Welcome',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# ✎ Maak een verhaaltje",key="request", on_click=change_page, args=('Request',))
+	st.button("# 📚 Maak een verhaaltje",key="request", on_click=change_page, args=('Request',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
 	st.button("# ❓ FAQ",key="faq", on_click=change_page, args=('FAQ',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# 💬 Voorbeelden",key="examples", on_click=change_page, args=('Examples',))
+	st.button("# ✎ Voorbeelden",key="examples", on_click=change_page, args=('Examples',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
 	st.button("# ✨ Steun ons",key="support", on_click=change_page, args=('Support',))
 
@@ -87,11 +106,16 @@ with st.sidebar:
 if st.session_state.current_page == "Welcome":
 
 	st.markdown("# AI Bedtime Stories")
-	st.markdown("## Gepersonaliseerde verhaaltjes voor het slapen gaan.", help="Verhaaltjes worden gemaakt aan de hand van ChatGPT-4o en illustraties aan de hand van DALL-E 3, beiden [modellen die door OpenAI aangeboden worden](https://platform.openai.com/docs/models).")
-		
-	col1, col2 = st.columns([0.3,0.7])
+	
+	col1, col2 = st.columns([0.13,0.87])
 	
 	with col1:
+		st.image("img/Logo-removebg.png")
+	
+	with col2:
+	
+		st.markdown("## Gepersonaliseerde verhaaltjes voor het slapen gaan.", help="Verhaaltjes worden gemaakt aan de hand van ChatGPT-4o en illustraties aan de hand van DALL-E 3, beiden [modellen die door OpenAI aangeboden worden](https://platform.openai.com/docs/models).")
+		
 		st.button("# 🌟 Maak een verhaaltje 🌟",key="request_from_welcome_top", on_click=change_page, args=('Request',), type="primary")
 	
 	st.divider() 
@@ -149,11 +173,11 @@ Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de 
 	col1, col2 = st.columns(2)
 	
 	with col1:
-		st.markdown("### Geautomatiseerd (gratis)")
+		st.markdown("<h3 style='text-align: center; color: black;'>Geautomatiseerd (gratis)</h3>", unsafe_allow_html=True)
 		st.image("img/raw_story.jpg")
 
 	with col2:
-		st.markdown("### Op aanvraag (betalend)")
+		st.markdown("<h3 style='text-align: center; color: black;'>Op aanvraag (betalend)</h3>", unsafe_allow_html=True)
 		st.image("img/formatted_story.jpg")
 	
 	
@@ -326,5 +350,8 @@ Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee m
   * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
   * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
 	""")
-	
-	st.image("img/qr.png",caption="Doneer door deze QR code te scannen")
+	col1, col2 = st.columns([0.3, 0.7])
+	with col1:
+		st.link_button("🌟  **Steun ons**  🌟", "https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY")
+		st.image("img/qr.png",caption="Doneer door deze QR code te scannen",use_column_width="always")
+		
