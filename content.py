@@ -90,7 +90,7 @@ Als je het formulier invult en indient zal er automatisch een verhaaltje gemaakt
 
 Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer **opgemaakte versie** ontvangen, zoals hieronder staat afgebeeld. Een leuk idee om later af te drukken en in te kaderen, eventueel als cadeau voor je nieuwe nichtje/neefje/mete- of petekindje, ...!
 
-Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
+Daarvoor vragen wij een bijdrage van **3,95 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
 
   * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
   * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
@@ -104,7 +104,7 @@ When you fill out and submit the form, a story will be automatically created and
 
 For a fee and upon request, you can also receive the story digitally(!) in a more **formatted version** as shown below. A nice idea to print later and frame, possibly as a gift for your new niece/nephew/godchild, ...!
 
-For this, we ask a contribution of **5 euros**. If interested, you can request this in the following way:
+For this, we ask a contribution of **3,95 euros**. If interested, you can request this in the following way:
 
   * [**Send me an email**](mailto:seth.moortgat@gmail.com) (do not reply to the original automated email, it does not come from the correct email address!)
   * Attach the PDF file you originally received, and clearly state that you would like to receive a formatted version.
@@ -248,7 +248,7 @@ That evening, safely in her bed, Lily dreamed about all the wonderful animals an
     "examples_formatted_version_description_NL": """
 Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer **opgemaakte versie** ontvangen, zoals hieronder staat afgebeeld. Een leuk idee om later af te drukken en in te kaderen, eventueel als cadeau voor je nieuwe nichtje/neefje/mete- of petekindje!
 
-Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
+Daarvoor vragen wij een bijdrage van **3,95 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
 
   * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
   * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
@@ -258,7 +258,7 @@ Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de 
     "examples_formatted_version_description_EN": """
 You can request and receive the story digitally in a more **formatted version** for a fee, as shown below. A great idea to print later and frame, possibly as a gift for your new niece/nephew/godchild!
 
-For this, we ask for a contribution of **5 euros**. If interested, you can request it in the following way:
+For this, we ask for a contribution of **3,95 euros**. If interested, you can request it in the following way:
 
   * [**Send me an email**](mailto:seth.moortgat@gmail.com) (do not reply to the original automated email, it does not come from the correct email address!)
   * Attach the PDF file you originally received, and clearly state that you would like to receive a formatted version.
@@ -283,7 +283,7 @@ Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee m
   * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande knop of QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
     """,
     "support_description_EN": """
-Initially, my goal is to **bring a smile to your children's faces**. Therefore, the service is currently completely free! Secondly, I hope to make the evening routine before bedtime a bit easier for you as parents.
+First and foremost, my goal is to **bring a smile to your children's faces**. Therefore, the service is currently completely free! Secondly, I hope to make the evening routine before bedtime a bit easier for you as parents.
 
 If that succeeds, and you would like to support this initiative, you can do so in two ways:
   * [**Send me an email**](mailto:seth.moortgat@gmail.com) with your hopefully enjoyable experience and any constructive feedback, which will bring a smile to my face!
