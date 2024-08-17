@@ -1,4 +1,5 @@
 import streamlit as st
+from content import lang_dict, content
 
 st.set_page_config(layout="wide")
 
@@ -9,19 +10,19 @@ st.set_page_config(layout="wide")
 ###############
 st.markdown("""
 <style>
-    .stButton button {
-        background-color: #e3f4ef;
-        font-weight: bold;
-        color: black;
-        width: 100%;
-        height: 50px;
-        border: 0px;
-    }
+	.stButton button {
+		background-color: #e3f4ef;
+		font-weight: bold;
+		color: black;
+		width: 100%;
+		height: 50px;
+		border: 0px;
+	}
 
-    .stButton button:hover {
-        background-color:#42deb1;
-        color: white;
-    }
+	.stButton button:hover {
+		background-color:#42deb1;
+		color: white;
+	}
 
 </style>
 """, unsafe_allow_html=True)
@@ -31,22 +32,22 @@ st.markdown("""
 justify-content: left;
 font-size: 20px;
  }</style>""", unsafe_allow_html=True)
- 
+
 st.markdown("""
 <style>
-    .stLinkButton a {
-        background-color: #e3f4ef;
-        font-weight: bold;
-        color: black;
-        width: 100%;
-        height: 50px;
-        border: 0px;
-    }
+	.stLinkButton a {
+		background-color: #e3f4ef;
+		font-weight: bold;
+		color: black;
+		width: 100%;
+		height: 50px;
+		border: 0px;
+	}
 
-    .stLinkButton a:hover {
-        background-color:#42deb1;
-        color: white;
-    }
+	.stLinkButton a:hover {
+		background-color:#42deb1;
+		color: white;
+	}
 
 </style>
 """, unsafe_allow_html=True)
@@ -54,9 +55,9 @@ st.markdown("""
 
 st.markdown("""
 <style>
-    [data-testid=stSidebar] {
-        background-color: #e3f4ef;
-    }
+	[data-testid=stSidebar] {
+		background-color: #e3f4ef;
+	}
 </style>
 """, unsafe_allow_html=True)
 
@@ -70,29 +71,53 @@ st.markdown("""
 if "current_page" not in st.session_state.keys():
 		st.session_state.current_page = "Welcome"
 
+if "language" not in st.session_state.keys():
+		st.session_state.language = "NL"
+
+
+###############
+#
+# HEADER
+#
+###############
+
+def change_language():
+	st.session_state.language = lang_dict[st.session_state.new_language]
+
+col1, col2 = st.columns([0.85,0.15])
+with col2:
+	lang = st.selectbox(
+		"",
+		(lang_dict.keys()),
+		index=0,
+		key="new_language",
+		on_change=change_language,
+	)
+
+
 
 ###############
 #
 # NAVIGATION SIDEBAR
 #
 ###############
-	
+
 def change_page(page):
 	st.session_state.current_page = page
 
 
 with st.sidebar:
-	st.title("Navigeer naar:")
+	st.title(content.get(f"sidebar_title_{st.session_state.language}"))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# 🎈 Welkom",key="welcome", on_click=change_page, args=('Welcome',))
+	st.button(content.get(f"sidebar_button_welcome_{st.session_state.language}"),key="welcome", on_click=change_page, args=('Welcome',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# 📚 Maak een verhaaltje",key="request", on_click=change_page, args=('Request',))
+	st.button(content.get(f"sidebar_button_request_{st.session_state.language}"),key="request", on_click=change_page, args=('Request',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# ❓ FAQ",key="faq", on_click=change_page, args=('FAQ',))
+	st.button(content.get(f"sidebar_button_faq_{st.session_state.language}"),key="faq", on_click=change_page, args=('FAQ',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# ✎ Voorbeelden",key="examples", on_click=change_page, args=('Examples',))
+	st.button(content.get(f"sidebar_button_examples_{st.session_state.language}"), on_click=change_page, args=('Examples',))
 	st.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
-	st.button("# ✨ Steun ons",key="support", on_click=change_page, args=('Support',))
+	st.button(content.get(f"sidebar_button_support_{st.session_state.language}"),key="support", on_click=change_page, args=('Support',))
 
 
 ###############
@@ -106,84 +131,52 @@ with st.sidebar:
 if st.session_state.current_page == "Welcome":
 
 	st.markdown("# AI Bedtime Stories")
-	
+
 	col1, col2 = st.columns([0.13,0.87])
-	
+
 	with col1:
 		st.image("img/Logo-removebg.png")
-	
+
 	with col2:
-	
-		st.markdown("## Gepersonaliseerde verhaaltjes voor het slapen gaan.", help="Verhaaltjes worden gemaakt aan de hand van ChatGPT-4o en illustraties aan de hand van DALL-E 3, beiden [modellen die door OpenAI aangeboden worden](https://platform.openai.com/docs/models).")
-		
-		st.button("# 🌟 Maak een verhaaltje 🌟",key="request_from_welcome_top", on_click=change_page, args=('Request',), type="primary")
-	
+		#"## Gepersonaliseerde verhaaltjes voor het slapen gaan."
+		print(f"subtitle_welcome_{st.session_state.language}")
+		st.markdown(content.get(f"subtitle_welcome_{st.session_state.language}"), help=content.get(f"subtitle_welcome_help_{st.session_state.language}"))
+
+		st.button(content.get(f"welcome_request_from_welcome_top_{st.session_state.language}"),key="request_from_welcome_top", on_click=change_page, args=('Request',), type="primary")
+
 	st.divider() 
-	
-	st.markdown("## Welkom!")
-	st.markdown("""
-AI bedtime stories is een geautomatiseerde service die door middel van artificiële intelligentie gepersonaliseerde verhaaltjes en illustraties kan maken. Op basis van de gegevens die jij ingeeft (naam & kenmerken van je kind en andere elementen die je graag in het verhaal wil verwerken), zal een kort verhaaltje met bijpassende illustratie naar jouw e-mail adres gestuurd worden.
 
-Het wordt pas echt magisch als je aan je kindje vraagt wat hij/zij graag in het verhaaltje zou willen verwerken! Hun fantasie rijkt vaak duizend maal verder dan die van ons!
-	""")
-	
-	
-	
-	st.markdown("## Woe werkt het?")
-	
-	st.markdown("""
-Een verhaaltje aanvragen doe je zo:
-  1. klik hieronder of in de navigatiebalk (links) op "Maak een verhaaltje"
-  2. Vul het formulier in door de vragen (met zoveel mogelijk details) te beantwoorden en druk op "Submit form".
-  3. Je zal binnen 24u (mogelijks al een stuk sneller) een e-mail ontvangen waarin je je persoonlijke verhaaltje met bijgevoegde illustratie kan terugvinden.
+	st.markdown(content.get(f"welcome_intro_{st.session_state.language}"))
 
-Je kan hieronder ook doorklikken om veelgestelde vragen te overlopen, of om een voorbeeldje te zien van wat je kan verwachten!
-	""")
-	
-	st.info("""
-	Disclaimer:
-	De verhaaltjes en bijgevoegde illustraties worden automatisch via artificiële intelligentie gemaakt, op basis van de input die jij doorgeeft. Wij kunnen nooit verantwoordelijk gehouden worden voor onverwachte of aanstootgevende uitkomsten!
-	""",icon="ℹ️")
-	
+	st.markdown(content.get(f"welcome_how_does_it_work_{st.session_state.language}"))
+
+	st.info(content.get(f"welcome_info_disclaimer_{st.session_state.language}"), icon="ℹ️")
+
 	col1, col2, col3 = st.columns(3)
 
 	with col1:
-		st.button("Maak een verhaaltje",key="request_from_welcome", on_click=change_page, args=('Request',))
+		st.button(content.get(f"welcome_request_from_welcome_{st.session_state.language}"), key="request_from_welcome", on_click=change_page, args=('Request',))
 
 	with col2:
-		st.button("Frequently Asked Questions",key="faq_from_welcome", on_click=change_page, args=('FAQ',))
-	
+		st.button(content.get(f"welcome_faq_from_welcome_{st.session_state.language}"), key="faq_from_welcome", on_click=change_page, args=('FAQ',))
+
 	with col3:
-		st.button("Voorbeelden",key="examples_from_welcome", on_click=change_page, args=('Examples',))
-		
-	st.markdown("## Wat mag ik verwachten?")
-	st.markdown("""
-Als je het formulier invult en indient zal er automatisch een verhaaltje gemaakt worden dat je als een pdf in je inbox zal kunnen terugvinden. Je kindje zal ongetwijfeld genieten van de inhoud van het verhaal en de bijgevoegde illustratie, maar dit bestand heeft geen speciale opmaak.
+		st.button(content.get(f"welcome_examples_from_welcome_{st.session_state.language}"), key="examples_from_welcome", on_click=change_page, args=('Examples',))
 
-Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer **opgemaakte versie** ontvangen, zoals hieronder staat afgebeeld. Een leuk idee om later af te drukken en in te kaderen, eventueel als cadeau voor je nieuwe nichtje/neefje/mete- of petekindje, ...!
+	st.markdown(content.get(f"welcome_expectation_details_{st.session_state.language}"))
 
-Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
-
-  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
-  * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
-  * Ik zal zo snel mogelijk contact opnemen met details over de betaling.
-  * Van zodra de betaling ontvangen is stuur ik je **digitaal(!)** een opgemaakte versie door. (Wij printen niets af en sturen niets met de post op!)
-	""")
-	
 	col1, col2 = st.columns(2)
-	
+
 	with col1:
-		st.markdown("<h3 style='text-align: center; color: black;'>Geautomatiseerd (gratis)</h3>", unsafe_allow_html=True)
-		st.image("img/raw_story.jpg")
+		st.markdown(content.get(f"welcome_automated_free_{st.session_state.language}"), unsafe_allow_html=True)
+		st.image(f"img/raw_story_{st.session_state.language}.jpg")
 
 	with col2:
-		st.markdown("<h3 style='text-align: center; color: black;'>Op aanvraag (betalend)</h3>", unsafe_allow_html=True)
-		st.image("img/formatted_story.jpg")
-	
-	
-	
-	st.markdown("## Wil je dit initiatief graag steunen?")
-	st.button("# 🌟 Kijk hier hoe je ons kan steunen! 🌟",key="support_from_welcome", on_click=change_page, args=('Support',), type="primary")
+		st.markdown(content.get(f"welcome_request_paid_{st.session_state.language}"), unsafe_allow_html=True)
+		st.image(f"img/formatted_story_{st.session_state.language}.jpg")
+
+	st.markdown(content.get(f"welcome_support_heading_{st.session_state.language}"))
+	st.button(content.get(f"welcome_support_from_welcome_{st.session_state.language}"), key="support_from_welcome", on_click=change_page, args=('Support',))
 
 
 
@@ -191,38 +184,59 @@ Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de 
 
 ###############
 #
-# SUBMIT
+# REQUEST
 #
 ###############
 
 elif st.session_state.current_page == "Request":
+
+	st.markdown(content.get(f"request_title_{st.session_state.language}"))
+
+	st.info(content.get(f"request_info_{st.session_state.language}"), icon="ℹ️")
+
+	st.divider()
 	
-	st.markdown("# Vraag een verhaaltje aan")
+	if st.session_state.language =="NL":
+		contact_form = """
+		<form action="https://api.web3forms.com/submit" method="POST">
+			<!-- Replace with your Access Key -->
+			<input type="hidden" name="access_key" value="69c64411-1307-4e08-b9cd-fdf76f46d456">
+			<!-- Form Inputs. Each input must have a name="" attribute -->
+			<label for="Name of main character"><font style="font-size:15pt;">Wat is de <font color="#26b29d"><b>naam</b></font> van het hoofdpersonage?</font></label><br>
+			<input type="text" name="Name of main character" placeholder="bvb. Emma, Lily, Arthur, ..." required>
+			<label for="Characteristics of main character"><font style="font-size:15pt;">Wat zijn specifieke <font color="#26b29d"><b>kenmerken</b></font> van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</font></label><br>
+			<input type="text" name="Characteristics of main character" placeholder="bvb. 3-jarig blond meisje dat graag een roze jurk draagt." required>
+			<label for="Elements of the story"><font style="font-size:15pt;">Welke <font color="#26b29d"><b>elementen</b></font> moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </font></label><br>
+			<input type="text" name="Elements of the story" placeholder="bvb. Ze speelt graag op het strand met haar hondje Flappy (een bruine golden retriever), maar is soms een beetje wild." required>
+			<label for="language"><font style="font-size:15pt;">In welke <font color="#26b29d"><b>taal</b></font> zou je het verhaaltje graag lezen?</font></label><br>
+			<input type="text" name="language" placeholder="Nederlands" required>
+			<label for="email"><font style="font-size:15pt;">Naar welk <font color="#26b29d"><b>email adres</b></font> moeten we het verhaal opsturen?</font></label><br>
+			<input type="email" name="email" placeholder="email@email.com" required>
+			<button type="submit"><font style="font-size:15pt;">Submit Form</font></button>
+		</form>
+		"""
 	
-	st.info("""
-	Vul onderstaande informatie zo nauwkeurig mogelijk in. Hoe meer details je meegeeft, hoe beter de kwaliteit van het verhaal en de bijhorende illustratie zal zijn.
-	""",icon="ℹ️")
-	
-	st.divider() 
-	
-	contact_form = """
-	<form action="https://api.web3forms.com/submit" method="POST">
-		<!-- Replace with your Access Key -->
-		<input type="hidden" name="access_key" value="69c64411-1307-4e08-b9cd-fdf76f46d456">
-		<!-- Form Inputs. Each input must have a name="" attribute -->
-		<label for="Name of main character"><font style="font-size:15pt;">Wat is de <font color="#26b29d"><b>naam</b></font> van het hoofdpersonage?</font></label><br>
-		<input type="text" name="Name of main character" placeholder="bvb. Emma, Lily, Arthur, ..." required>
-		<label for="Characteristics of main character"><font style="font-size:15pt;">Wat zijn specifieke <font color="#26b29d"><b>kenmerken</b></font> van het hoofdpersonage? Denk aan haarkleur, geslacht, leeftijd, favoriete kledij, ...</font></label><br>
-		<input type="text" name="Characteristics of main character" placeholder="bvb. 3-jarig blond meisje dat graag een roze jurk draagt." required>
-		<label for="Elements of the story"><font style="font-size:15pt;">Welke <font color="#26b29d"><b>elementen</b></font> moeten er zeker voorkomen in het verhaal? Denk aan een broertje/zusje, huisdier, een specifieke locatie of gebeurtenis, iets dat je je kind probeert aan te leren, ... </font></label><br>
-		<input type="text" name="Elements of the story" placeholder="bvb. Ze speelt graag op het strand met haar hondje Flappy (een bruine golden retriever), maar is soms een beetje wild." required>
-		<label for="language"><font style="font-size:15pt;">In welke <font color="#26b29d"><b>taal</b></font> zou je het verhaaltje graag lezen?</font></label><br>
-		<input type="text" name="language" placeholder="Nederlands" required>
-		<label for="email"><font style="font-size:15pt;">Naar welk <font color="#26b29d"><b>email adres</b></font> moeten we het verhaal opsturen?</font></label><br>
-		<input type="email" name="email" placeholder="email@email.com" required>
-		<button type="submit"><font style="font-size:15pt;">Submit Form</font></button>
-	</form>
-	"""
+	elif st.session_state.language =="EN":
+		contact_form = """
+		<form action="https://api.web3forms.com/submit" method="POST">
+			<!-- Replace with your Access Key -->
+			<input type="hidden" name="access_key" value="69c64411-1307-4e08-b9cd-fdf76f46d456">
+			<!-- Form Inputs. Each input must have a name="" attribute -->
+			<label for="Name of main character"><font style="font-size:15pt;">What is the <font color="#26b29d"><b>name</b></font> of the main character?</font></label><br>
+			<input type="text" name="Name of main character" placeholder="ex. Emma, Lily, Arthur, ..." required>
+			<label for="Characteristics of main character"><font style="font-size:15pt;">What are some of the most profound <font color="#26b29d"><b>characteristics</b></font> of the main character? Think about hair color, gender, age, favorite clothing, ...</font></label><br>
+			<input type="text" name="Characteristics of main character" placeholder="ex. 3 year old blonde girl that likes to wear a pink dress." required>
+			<label for="Elements of the story"><font style="font-size:15pt;">Which <font color="#26b29d"><b>elements</b></font> have to appear in the story? This about a brother/sister, a pet, a specific location or event, something you are trying to teach your child, ... </font></label><br>
+			<input type="text" name="Elements of the story" placeholder="ex. She likes to play on the beach with het dog Flappy (a brown golden retriever), but she plays a bit rough sometimes." required>
+			<label for="language"><font style="font-size:15pt;">In what <font color="#26b29d"><b>language</b></font> would you like to read the story?</font></label><br>
+			<input type="text" name="language" placeholder="English" required>
+			<label for="email"><font style="font-size:15pt;">To which <font color="#26b29d"><b>email address</b></font> do you want us to send the story?</font></label><br>
+			<input type="email" name="email" placeholder="email@email.com" required>
+			<button type="submit"><font style="font-size:15pt;">Submit Form</font></button>
+		</form>
+		"""
+
+
 
 	st.markdown(contact_form, unsafe_allow_html=True)
 
@@ -233,37 +247,26 @@ elif st.session_state.current_page == "Request":
 
 
 	local_css("./style/style.css")
- 
+
 
 ###############
 #
 # FAQ
 #
 ###############
- 
+
 if st.session_state.current_page == "FAQ":
 
-	st.title("Frequently Asked Questions")
-	
-	with st.expander("Ik wacht al meer dan 24u maar heb nog geen email ontvangen?"):
-		st.markdown('''
-Het spijt me dat je nog geen verhaaltje hebt ontvangen, normaal zou je binnen 24u zeker een email moeten hebben ontvangen. Het automatisch genereren van een verhaal en bijgevoegde illustratie is afhankelijk van verschillende externe services. Er kan altijd iets mis lopen, zowel bij de externe services als ergens anders. Wat je alvast kan proberen is het volgende:
-  * Kijk even je spam na
-  * Kijk na of je inbox niet vol zit
-  * Probeer het gewoon nog een keer, misschien lukt het deze keer wel
+	st.title(content.get(f"faq_title_{st.session_state.language}"))
 
-Als je toch nog steeds niets ontvangt, aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:seth.moortgat@gmail.com)!
-		''')
-	
-	with st.expander("Het verhaal en/of de illustratie komen niet goed overeen met mijn beschrijving, hoe komt dat?"):
-		st.markdown('''
-Helaas hebben we weinig controle over wat de AI algoritmes genereren, en kan het soms gebeuren dat het resultaat (text of beeld) niet helemaal overeen komt met wat je zou verwachten. Het helpt om het formulier met zo veel mogelijk detail in te vullen, dus probeer het gerust nog een keer met een nieuwe, gedetailleerde beschrijving van wat je graag wil zien/horen!
-		''')
-	
-	with st.expander("Hoe weet ik of mijn aanvraag goed verzonden is?"):
-		st.markdown('''
-Als je onderstaand scherm te zien krijgt weet je dat je aanvraag goed verzonden is. Er kan echter nog altijd iets mislopen in het process waardoor je toch geen email ontvangt binnen de 24u. Als dat zo zou zijn, kijk dan even naar de gerelateerde vraag hierboven.
-		''')
+	with st.expander(content.get(f"faq_expander1_title_{st.session_state.language}")):
+		st.markdown(content.get(f"faq_expander1_content_{st.session_state.language}"))
+
+	with st.expander(content.get(f"faq_expander2_title_{st.session_state.language}")):
+		st.markdown(content.get(f"faq_expander2_content_{st.session_state.language}"))
+
+	with st.expander(content.get(f"faq_expander3_title_{st.session_state.language}")):
+		st.markdown(content.get(f"faq_expander3_content_{st.session_state.language}"))
 		st.image("img/Success.png")
 
 ###############
@@ -271,87 +274,50 @@ Als je onderstaand scherm te zien krijgt weet je dat je aanvraag goed verzonden 
 # Examples
 #
 ###############
- 
+
 if st.session_state.current_page == "Examples":
 
-	st.title("Voorbeelden")
-	
-	st.markdown("## Input")
-	
-	st.markdown("""
-	| Vraag | Antwoord|
-	--------|-------- |
-	| Naam | Lily |
-	| Kenmerken| 2-jarig meisje met donkerbruin haar en staartje bovenop haar hoofd. Ze draagt een groene t-shirt met een smiley op. |
-	| Elementen in het verhaal | Lily gaat graag naar de dierentuin. |
-	| Taal | Nederlands |
-	
-	""")
-	
-	st.divider() 
-	
-	st.markdown("## Resultaat")
-	
-	
-	
+	st.title(content.get(f"examples_title_{st.session_state.language}"))
+
+	st.markdown(content.get(f"examples_input_header_{st.session_state.language}"))
+
+	st.markdown(content.get(f"examples_input_table_{st.session_state.language}"))
+
+	st.divider()
+
+	st.markdown(content.get(f"examples_result_header_{st.session_state.language}"))
+
 	col1, col2 = st.columns([0.3, 0.7])
 
 	with col1:
-		st.markdown("### Lily bij de Flamingo's")
+		st.markdown(content.get(f"examples_result_subheader_{st.session_state.language}"))
 		st.image("img/Image1.png")
 
 	with col2:
-		st.markdown("""
-		
-Er was eens een klein meisje genaamd Lily. Ze was twee jaar oud, had donkerbruin haar dat in een grappig staartje bovenop haar hoofd stond. Lily droeg altijd haar favoriete groene t-shirt met een grote smiley erop. Ze vond het geweldig om naar de dierentuin te gaan en was altijd vol enthousiasme.
+		st.markdown(content.get(f"examples_result_story_{st.session_state.language}"))
 
-Op een zonnige dag mocht Lily samen met haar ouders naar de zoo. Ze huppelde vrolijk van het ene dierenverblijf naar het andere. Ze bewonderde de olifanten, lachte om de grappige aapjes en zwaaide naar de majestueuze leeuwen.
+	st.markdown(content.get(f"examples_formatted_version_header_{st.session_state.language}"))
 
-Toen gebeurde er iets spannends. Terwijl Lily naar de kleurrijke papegaaien keek, liep ze per ongeluk een beetje te ver weg van haar ouders. Plotseling stond ze alleen bij het hek van de flamingo's. Lily keek om zich heen, maar zag haar ouders nergens. Haar hartje begon sneller te kloppen.
-
-Net op dat moment hoorde ze een zachte stem: "Lily, waar ben je?" Het was haar moeder! Met een opgelucht gevoel rende ze naar de stem toe en viel in de warme armen van haar moeder. Haar ouders waren gewoon een paar meter verderop geweest en hadden haar de hele tijd in de gaten gehouden.
-
-Die avond, veilig in haar bedje, droomde Lily over alle prachtige dieren en wist ze dat alles altijd goed zou komen zolang ze dicht bij haar ouders bleef. En met dat geruststellende gevoel, viel ze snel in slaap.
-
-		""")
-		
-	st.markdown("## Opgemaakte versie (op aanvraag en betalend)")
-	
 	col1, col2 = st.columns([0.6, 0.4])
 	with col1:
-		st.markdown("""
-Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer **opgemaakte versie** ontvangen, zoals hieronder staat afgebeeld. Een leuk idee om later af te drukken en in te kaderen, eventueel als cadeau voor je nieuwe nichtje/neefje/mete- of petekindje!
-
-Daarvoor vragen wij een bijdrage van **5 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
-
-  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
-  * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
-  * Ik zal zo snel mogelijk contact opnemen met details over de betaling.
-  * Van zodra de betaling ontvangen is stuur ik je **digitaal(!)** een opgemaakte versie door. (Wij printen niets af en sturen niets met de post op!)
-		""")
+		st.markdown(content.get(f"examples_formatted_version_description_{st.session_state.language}"))
 
 	with col2:
-		st.image("img/formatted_story.jpg")
+		st.image(f"img/formatted_story_{st.session_state.language}.jpg")
 
 ###############
 #
 # Support
 #
 ###############
- 
+
 if st.session_state.current_page == "Support":
 
-	st.markdown("# Wil je dit initiatief graag steunen?")
-	
-	st.markdown("""
-In eerste instantie is het mijn doel om **een lach te toveren op de gezichten van jullie kindjes**. Vandaar is de service voorlopig helemaal gratis! In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
-	
-Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
-  * [**Stuur me een e-mail**](mailto:seth.moortgat@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
-  * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
-	""")
+	st.markdown(content.get(f"support_title_{st.session_state.language}"))
+
+	st.markdown(content.get(f"support_description_{st.session_state.language}"))
+
 	col1, col2 = st.columns([0.3, 0.7])
 	with col1:
-		st.link_button("🌟  **Steun ons**  🌟", "https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY")
-		st.image("img/qr.png",caption="Doneer door deze QR code te scannen",use_column_width="always")
-		
+		st.link_button(content.get(f"support_donate_button_{st.session_state.language}"), "https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY")
+		st.image("img/qr.png", caption=content.get(f"support_qr_caption_{st.session_state.language}"), use_column_width="always")
