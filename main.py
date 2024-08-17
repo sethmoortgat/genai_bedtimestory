@@ -226,7 +226,7 @@ elif st.session_state.current_page == "Request":
 			<input type="text" name="Name of main character" placeholder="ex. Emma, Lily, Arthur, ..." required>
 			<label for="Characteristics of main character"><font style="font-size:15pt;">What are some of the most profound <font color="#26b29d"><b>characteristics</b></font> of the main character? Think about hair color, gender, age, favorite clothing, ...</font></label><br>
 			<input type="text" name="Characteristics of main character" placeholder="ex. 3 year old blonde girl that likes to wear a pink dress." required>
-			<label for="Elements of the story"><font style="font-size:15pt;">Which <font color="#26b29d"><b>elements</b></font> have to appear in the story? This about a brother/sister, a pet, a specific location or event, something you are trying to teach your child, ... </font></label><br>
+			<label for="Elements of the story"><font style="font-size:15pt;">Which <font color="#26b29d"><b>elements</b></font> have to appear in the story? Think about a brother/sister, a pet, a specific location or event, something you are trying to teach your child, ... </font></label><br>
 			<input type="text" name="Elements of the story" placeholder="ex. She likes to play on the beach with het dog Flappy (a brown golden retriever), but she plays a bit rough sometimes." required>
 			<label for="language"><font style="font-size:15pt;">In what <font color="#26b29d"><b>language</b></font> would you like to read the story?</font></label><br>
 			<input type="text" name="language" placeholder="English" required>
