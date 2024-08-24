@@ -92,7 +92,7 @@ Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer 
 
 Daarvoor vragen wij een bijdrage van **3,95 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
 
-  * [**Stuur me een e-mail**](mailto:genaibedtimestories@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
+  * [**Stuur me een e-mail**](mailto:aibedtimestories92@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
   * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
   * Ik zal zo snel mogelijk contact opnemen met details over de betaling.
   * Van zodra de betaling ontvangen is stuur ik je **digitaal(!)** een opgemaakte versie door. (Wij printen niets af en sturen niets met de post op!)
@@ -106,7 +106,7 @@ For a fee and upon request, you can also receive the story digitally(!) in a mor
 
 For this, we ask a contribution of **3,95 euros**. If interested, you can request this in the following way:
 
-  * [**Send me an email**](mailto:genaibedtimestories@gmail.com) (do not reply to the original automated email, it does not come from the correct email address!)
+  * [**Send me an email**](mailto:aibedtimestories92@gmail.com) (do not reply to the original automated email, it does not come from the correct email address!)
   * Attach the PDF file you originally received, and clearly state that you would like to receive a formatted version.
   * I will contact you as soon as possible with details about the payment.
   * Once the payment is received, I will send you **digitally(!)** a formatted version. (We do not print anything and send nothing by mail!)
@@ -155,7 +155,7 @@ Het spijt me dat je nog geen verhaaltje hebt ontvangen, normaal zou je binnen 24
   * Kijk na of je inbox niet vol zit
   * Probeer het gewoon nog een keer, misschien lukt het deze keer wel
 
-Als je toch nog steeds niets ontvangt, aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:genaibedtimestories@gmail.com)!
+Als je toch nog steeds niets ontvangt, aarzel dan niet om contact op te nemen door [een e-mail te sturen](mailto:aibedtimestories92@gmail.com)!
     ''',
     "faq_expander1_content_EN": '''
 I'm sorry you haven't received your story yet, normally you should have received an email within 24 hours. The automatic generation of a story and accompanying illustration depends on various external services. Something can always go wrong, either with the external services or elsewhere. Here's what you can try:
@@ -163,7 +163,7 @@ I'm sorry you haven't received your story yet, normally you should have received
   * Check if your inbox is not full
   * Try again, maybe it will work this time
 
-If you still receive nothing, do not hesitate to contact us by [sending an email](mailto:genaibedtimestories@gmail.com)!
+If you still receive nothing, do not hesitate to contact us by [sending an email](mailto:aibedtimestories92@gmail.com)!
     ''',
 
     "faq_expander2_title_NL": "Het verhaal en/of de illustratie komen niet goed overeen met mijn beschrijving, hoe komt dat?",
@@ -250,7 +250,7 @@ Je kan tegen betaling en op aanvraag het verhaaltje ook digitaal(!) in een meer 
 
 Daarvoor vragen wij een bijdrage van **3,95 euro**. Bij interesse kan je dit op de volgende manier aanvragen:
 
-  * [**Stuur me een e-mail**](mailto:genaibedtimestories@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
+  * [**Stuur me een e-mail**](mailto:aibedtimestories92@gmail.com) (antwoord niet op de originele geautomatiseerde email, deze komt niet van het juiste email adres!)
   * Voeg in de attachment het pdf bestand toe dat je origineel hebt ontvangen, en vermeld duidelijk dat je graag een opgemaakte versie wil ontvangen.
   * Ik zal zo snel mogelijk contact opnemen met details over de betaling.
   * Van zodra de betaling ontvangen is stuur ik je **digitaal(!)** een opgemaakte versie door. (Wij printen niets af en sturen niets met de post op!)
@@ -260,7 +260,7 @@ You can request and receive the story digitally in a more **formatted version** 
 
 For this, we ask for a contribution of **3,95 euros**. If interested, you can request it in the following way:
 
-  * [**Send me an email**](mailto:genaibedtimestories@gmail.com) (do not reply to the original automated email, it does not come from the correct email address!)
+  * [**Send me an email**](mailto:aibedtimestories92@gmail.com) (do not reply to the original automated email, it does not come from the correct email address!)
   * Attach the PDF file you originally received, and clearly state that you would like to receive a formatted version.
   * I will contact you as soon as possible with details about the payment.
   * Once the payment is received, I will send you a **digital(!)** formatted version. (We do not print anything or send anything by mail!)
@@ -279,14 +279,14 @@ For this, we ask for a contribution of **3,95 euros**. If interested, you can re
 In eerste instantie is het mijn doel om **een lach te toveren op de gezichten van jullie kindjes**. Vandaar is de service voorlopig helemaal gratis! In tweede instantie hoop ik dat ik ook het level van jullie als ouder wat eenvoudiger maak tijdens de avondroutine voor het slapen gaan.
 
 Als dat is gelukt, en je wil dit initiatief graag steunen, dan kan dat op twee manieren:
-  * [**Stuur me een e-mail**](mailto:genaibedtimestories@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
+  * [**Stuur me een e-mail**](mailto:aibedtimestories92@gmail.com) met je hopelijke leuke ervaring en eventuele constructieve feedback, dat zal een lach op mijn gezicht toveren!
   * Je kan ook een vrijwillige [**donatie maken via deze link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) of onderstaande knop of QR code. Dit geld zal ik gebruiken om de kosten te dekken die nodig zijn om dit initiatief te onderhouden. Als er dan nog iets over blijft gaat dat rechtstreeks in het spaarvarkentje van mijn twee dochtertjes.
     """,
     "support_description_EN": """
 First and foremost, my goal is to **bring a smile to your children's faces**. Therefore, the service is currently completely free! Secondly, I hope to make the evening routine before bedtime a bit easier for you as parents.
 
 If that succeeds, and you would like to support this initiative, you can do so in two ways:
-  * [**Send me an email**](mailto:genaibedtimestories@gmail.com) with your hopefully enjoyable experience and any constructive feedback, which will bring a smile to my face!
+  * [**Send me an email**](mailto:aibedtimestories92@gmail.com) with your hopefully enjoyable experience and any constructive feedback, which will bring a smile to my face!
   * You can also make a voluntary [**donation through this link**](https://www.paypal.com/donate/?hosted_button_id=U6D6FC5LSCPWY) or the button or QR code below. This money will be used to cover the costs necessary to maintain this initiative. If there is anything left over, it will go directly into the piggy bank of my two little daughters.
     """,
 
